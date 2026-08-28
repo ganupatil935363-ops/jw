@@ -1,0 +1,38 @@
+{
+  "name": "smartstore",
+  "version": "1.0.0",
+  "description": "Mini E-Commerce with Admin Panel",
+  "main": "backend/server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^4.22.2",
+    "express-rate-limit": "^8.6.2",
+    "helmet": "^8.3.0",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.24.3",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.6",
+    "socket.io": "^4.8.3",
+    "cloudinary": "^2.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "keywords": [
+    "ecommerce",
+    "admin",
+    "nodejs",
+    "express"
+  ],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20 <25"
+  }
+}

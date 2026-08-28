@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrisilverbay - Fine Jewellery & Silver Collection</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-links">
+                <a href="#"><i class="fas fa-mobile-alt"></i> Download App</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i> Track Order</a>
+                <a href="#"><i class="fas fa-headset"></i> Help Center</a>
+            </div>
+            <div class="top-offer">
+                <i class="fas fa-fire"></i> Festive Jewellery Edit | Elegant pieces for every occasion
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fas fa-gem"></i>
+                <div class="logo-text">
+                    <span class="logo-main">Shrisilverbay</span>
+                    <span class="logo-tagline">Fine Jewellery • Timeless Elegance</span>
+                </div>
+            </a>
+
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search jewellery, collections and more...">
+                <button class="search-btn" onclick="performSearch()">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+
+            <div class="header-actions">
+                <a href="#" class="action-btn" id="userMenuBtn" onclick="showLogin()">
+                    <i class="fas fa-user"></i>
+                    <span id="userNameDisplay">Login</span>
+                </a>
+                <a href="#" class="action-btn" id="profileMenuBtn" onclick="showProfile()" style="display: none;">
+                    <i class="fas fa-user-circle"></i>
+                    <span>My Profile</span>
+                </a>
+                <a href="#" class="action-btn" id="logoutBtn" onclick="logout()" style="display: none;">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+                <a href="#" class="action-btn" onclick="toggleWishlistSidebar()">
+                    <i class="fas fa-heart"></i>
+                    <span>Wishlist</span>
+                    <div class="badge wishlist-count">0</div>
+                </a>
+                <a href="#" class="action-btn" onclick="toggleCart()">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span>Cart</span>
+                    <div class="badge cart-count">0</div>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Category Navigation -->
+    <nav class="category-nav">
+        <div class="container" id="categoryNav">
+            <!-- Categories loaded from Admin → Categories. Uploaded category images are used in Shop by Collection below. -->
+        </div>
+    </nav>
+
+    <!-- Hero Carousel -->
+    <section class="hero-carousel">
+        <div class="container">
+            <div class="carousel-container">
+                <div class="carousel-slides" id="carouselSlides">
+                    <!-- Banners loaded by JS -->
+                </div>
+                <div class="carousel-arrows">
+                    <button class="carousel-arrow" onclick="moveCarousel(-1)"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-arrow" onclick="moveCarousel(1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </section>
+
+    <!-- Deals Section -->
+    <section class="deals-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-bolt"></i> Jewellery Offers</h2>
+            <div class="deals-grid" id="dealsGrid">
+                <!-- Deals loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-gem"></i> Shop by Collection</h2>
+            <div class="categories-grid" id="categoriesGrid">
+                <!-- Categories loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Jewellery -->
+    <section class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-fire"></i> Trending Jewellery</h2>
+                <a href="#products" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+            </div>
+            <div class="products-grid" id="trendingGrid">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Bestselling Collections -->
+    <section class="products-section" style="background: var(--white);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-crown"></i> Bestselling Collections</h2>
+                <div class="tabs" id="bestsellerTabs">
+                    <button class="tab active" onclick="filterProductsByBestCategory('all')">All</button>
+                </div>
+            </div>
+            <div class="products-grid" id="bestsellersGrid">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- All Jewellery -->
+    <section class="products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title"><i class="fas fa-shopping-bag"></i> All Jewellery</h2>
+                <span id="resultsCount" style="color: var(--gray);">Loading...</span>
+            </div>
+            <div class="products-grid" id="productsGrid">
+                <!-- Products loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Recently Viewed -->
+    <section class="products-section" id="recentlyViewed" style="display: none;">
+        <div class="container">
+            <h2 class="section-title"><i class="fas fa-history"></i> Recently Viewed</h2>
+            <div class="products-grid" id="recentlyViewedGrid">
+                <!-- Recently viewed products loaded by JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-section">
+        <div class="container">
+            <div class="trust-grid">
+                <div class="trust-item">
+                    <i class="fas fa-truck"></i>
+                    <div>
+                        <h4>Free Delivery</h4>
+                        <p>On orders above ₹500</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-shield-alt"></i>
+                    <div>
+                        <h4>Secure Payment</h4>
+                        <p>100% secure checkout</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-undo"></i>
+                    <div>
+                        <h4>Easy Returns</h4>
+                        <p>7 days return policy</p>
+                    </div>
+                </div>
+                <div class="trust-item">
+                    <i class="fas fa-headset"></i>
+                    <div>
+                        <h4>24/7 Support</h4>
+                        <p>Dedicated support team</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>About Shrisilverbay</h3>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Customer Service</h3>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Returns</a></li>
+                        <li><a href="#">Track Order</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Policy</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Return Policy</a></li>
+                        <li><a href="#">Security</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Connect With Us</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i> Twitter</a></li>
+                        <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shrisilverbay. All rights reserved.</p>
+                <div class="footer-payment">
+                    <div class="payment-icon-sm"><i class="fab fa-cc-visa"></i></div>
+                    <div class="payment-icon-sm"><i class="fab fa-cc-mastercard"></i></div>
+                    <div class="payment-icon-sm"><i class="fab fa-cc-amex"></i></div>
+                    <div class="payment-icon-sm"><i class="fas fa-university"></i></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeAllSidebars()"></div>
+
+    <!-- Cart Sidebar -->
+    <div class="sidebar" id="cartSidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title"><i class="fas fa-shopping-cart"></i> Shopping Cart</h3>
+            <button class="sidebar-close" onclick="toggleCart()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-body" id="cartItems">
+            <div class="empty-state">
+                <i class="fas fa-shopping-cart"></i>
+                <p>Your cart is empty</p>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <div id="cartTotal"></div>
+            <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showCheckout()">
+                <i class="fas fa-credit-card"></i> Checkout
+            </button>
+        </div>
+    </div>
+
+    <!-- Wishlist Sidebar -->
+    <div class="sidebar" id="wishlistSidebar">
+        <div class="sidebar-header">
+            <h3 class="sidebar-title"><i class="fas fa-heart"></i> Your Wishlist</h3>
+            <button class="sidebar-close" onclick="toggleWishlistSidebar()"><i class="fas fa-times"></i></button>
+        </div>
+        <div class="sidebar-body" id="wishlistItems">
+            <div class="empty-state">
+                <i class="fas fa-heart"></i>
+                <p>Your wishlist is empty</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals will be dynamically inserted by JS -->
+
+    <script src="script.js"></script>
+</body>
+</html>

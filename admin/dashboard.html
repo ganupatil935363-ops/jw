@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shrisilverbay - Jewellery Admin Dashboard</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #6C63FF;
+            --primary-light: #8B85FF;
+            --primary-dark: #5046E5;
+            --secondary: #00D26A;
+            --accent: #FF6B6B;
+            --warning: #FFB800;
+            --dark: #1A1A2E;
+            --darker: #16213E;
+            --light: #F8FAFC;
+            --gray: #6B7280;
+            --gray-light: #E5E7EB;
+            --card-bg: #FFFFFF;
+            --gradient-primary: linear-gradient(135deg, #6C63FF 0%, #5046E5 100%);
+            --gradient-success: linear-gradient(135deg, #00D26A 0%, #00B894 100%);
+            --gradient-accent: linear-gradient(135deg, #FF6B6B 0%, #EE5A6F 100%);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Poppins', sans-serif; background: var(--light); color: var(--dark); }
+        
+        /* Login Page */
+        .login-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gradient-primary);
+            padding: 20px;
+        }
+        .login-box {
+            background: var(--card-bg);
+            border-radius: 24px;
+            padding: 48px;
+            width: 100%;
+            max-width: 440px;
+            box-shadow: var(--shadow-xl);
+            text-align: center;
+        }
+        .login-box h1 {
+            font-size: 32px;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+        }
+        .login-box p { color: var(--gray); margin-bottom: 32px; }
+        .login-form input {
+            width: 100%;
+            padding: 16px 20px;
+            margin-bottom: 16px;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+        .login-form input:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+        }
+        .btn-primary {
+            width: 100%;
+            padding: 16px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+        .error-msg {
+            color: var(--accent);
+            margin-top: 16px;
+            display: none;
+        }
+        
+        /* Admin Dashboard */
+        #adminDashboard { display: none; }
+        
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: var(--dark);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        .sidebar-header {
+            padding: 24px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-header h1 {
+            color: white;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .sidebar-header h1 i {
+            color: var(--primary);
+            font-size: 28px;
+        }
+        .nav-menu { padding: 16px 0; }
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 14px 24px;
+            color: rgba(255,255,255,0.7);
+            cursor: pointer;
+            transition: all 0.3s;
+            border-left: 3px solid transparent;
+            text-decoration: none;
+        }
+        .nav-item:hover, .nav-item.active {
+            background: rgba(108, 99, 255, 0.1);
+            color: white;
+            border-left-color: var(--primary);
+        }
+        .nav-item i { width: 24px; font-size: 18px; }
+        
+        /* Main Content */
+        .main-content {
+            margin-left: 280px;
+            min-height: 100vh;
+        }
+        .top-bar {
+            background: var(--card-bg);
+            padding: 20px 32px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .top-bar h2 { font-size: 24px; font-weight: 700; }
+        .user-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .btn-logout {
+            padding: 10px 20px;
+            background: var(--gradient-accent);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        .btn-logout:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 107, 0.4);
+        }
+        
+        /* Stats */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            padding: 32px;
+        }
+        .stat-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+        }
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+        .stat-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .stat-header span { color: var(--gray); font-size: 14px; }
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        .stat-icon.blue { background: rgba(108, 99, 255, 0.1); color: var(--primary); }
+        .stat-icon.green { background: rgba(0, 210, 106, 0.1); color: var(--secondary); }
+        .stat-icon.orange { background: rgba(255, 184, 0, 0.1); color: var(--warning); }
+        .stat-icon.pink { background: rgba(255, 107, 107, 0.1); color: var(--accent); }
+        .stat-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--dark);
+        }
+        
+        /* Sections */
+        .content-area { padding: 0 32px 32px; }
+        .section { display: none; }
+        .section.active { display: block; animation: fadeIn 0.4s; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            margin-bottom: 24px;
+            overflow: hidden;
+        }
+        .card-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card-title { font-size: 18px; font-weight: 700; }
+        .btn-add {
+            padding: 12px 24px;
+            background: var(--gradient-primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        .btn-add:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 99, 255, 0.4);
+        }
+        .card-body { padding: 24px; }
+        
+        /* Tables */
+        .table-container { overflow-x: auto; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th {
+            text-align: left;
+            padding: 16px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--gray);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        td {
+            padding: 16px;
+            border-bottom: 1px solid var(--gray-light);
+            font-size: 14px;
+        }
+        tr:hover { background: var(--light); }
+        
+        .product-thumb, .category-thumb {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 12px;
+            background: var(--light);
+        }
+        .product-name-cell {
+            font-weight: 600;
+            color: var(--dark);
+        }
+        .product-brand-cell {
+            font-size: 12px;
+            color: var(--gray);
+        }
+        .price {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 16px;
+        }
+        .badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .badge-success { background: rgba(0, 210, 106, 0.1); color: var(--secondary); }
+        .badge-warning { background: rgba(255, 184, 0, 0.1); color: var(--warning); }
+        .badge-danger { background: rgba(255, 107, 107, 0.1); color: var(--accent); }
+        .badge-info { background: rgba(108, 99, 255, 0.1); color: var(--primary); }
+        
+        .stock-badge {
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .stock-badge.in-stock { background: rgba(0, 210, 106, 0.1); color: var(--secondary); }
+        .stock-badge.low-stock { background: rgba(255, 184, 0, 0.1); color: var(--warning); }
+        .stock-badge.out-stock { background: rgba(255, 107, 107, 0.1); color: var(--accent); }
+        
+        .action-btns {
+            display: flex;
+            gap: 8px;
+        }
+        .btn-action {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .btn-edit { background: rgba(108, 99, 255, 0.1); color: var(--primary); }
+        .btn-delete { background: rgba(255, 107, 107, 0.1); color: var(--accent); }
+        .btn-view { background: rgba(0, 210, 106, 0.1); color: var(--secondary); }
+        .btn-action:hover { transform: scale(1.1); }
+        
+        /* Modals */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            overflow-y: auto;
+        }
+        .modal-overlay.show { display: flex; }
+        .modal-content {
+            background: var(--card-bg);
+            border-radius: 24px;
+            width: 100%;
+            max-width: 800px;
+            max-height: 90vh;
+            overflow: hidden;
+            animation: slideUp 0.4s;
+        }
+        .modal-content.large { max-width: 1000px; }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .modal-header {
+            padding: 24px;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-title { font-size: 20px; font-weight: 700; }
+        .close-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light);
+            border: none;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        .close-btn:hover {
+            background: var(--accent);
+            color: white;
+            transform: rotate(90deg);
+        }
+        .modal-body {
+            padding: 24px;
+            max-height: 70vh;
+            overflow-y: auto;
+        }
+        
+        /* Forms */
+        .form-group { margin-bottom: 24px; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            font-size: 15px;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s;
+        }
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.1);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        /* Rich Text Editor */
+        .rich-text-editor {
+            border: 2px solid var(--gray-light);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .rte-toolbar {
+            display: flex;
+            gap: 4px;
+            padding: 12px;
+            background: var(--light);
+            border-bottom: 1px solid var(--gray-light);
+            flex-wrap: wrap;
+        }
+        .rte-btn {
+            width: 36px;
+            height: 36px;
+            border: none;
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            font-weight: bold;
+        }
+        .rte-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        .rte-content {
+            min-height: 200px;
+            padding: 16px;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+        .rte-content:focus { outline: none; }
+        
+        /* File Upload */
+        .file-upload {
+            border: 2px dashed var(--gray-light);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .file-upload:hover {
+            border-color: var(--primary);
+            background: rgba(108, 99, 255, 0.02);
+        }
+        .file-upload i {
+            font-size: 48px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        .file-upload p { color: var(--gray); }
+        .file-upload input { display: none; }
+        
+        .preview-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 12px;
+            margin-top: 16px;
+        }
+        .preview-item {
+            position: relative;
+        }
+        .preview-img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .remove-img {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+        }
+        
+        /* Upload Loading */
+        .upload-loading {
+            text-align: center;
+            padding: 40px;
+            color: var(--gray);
+        }
+        .upload-loading i {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+        
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        
+        /* Banners */
+        .banner-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+        .banner-image-wrapper {
+            position: relative;
+            height: 200px;
+        }
+        .banner-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .banner-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+        }
+        .banner-overlay h4 { font-size: 18px; margin-bottom: 4px; }
+        .banner-overlay p { font-size: 14px; opacity: 0.8; }
+        .banner-actions {
+            padding: 16px;
+            display: flex;
+            gap: 12px;
+        }
+        .btn-small {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        /* Empty State */
+        .empty-state {
+            text-align: center;
+            padding: 60px;
+            color: var(--gray);
+        }
+        .empty-state i {
+            font-size: 64px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+        .full-width { grid-column: 1 / -1; }
+        
+        /* Status Select */
+        .status-select {
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid var(--gray-light);
+            background: white;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        
+        /* Order Details */
+        .order-detail { padding: 24px; }
+        .detail-section {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        .detail-section:last-child { border-bottom: none; }
+        .detail-section h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+        .order-item {
+            display: flex;
+            gap: 16px;
+            padding: 16px;
+            background: var(--light);
+            border-radius: 12px;
+            margin-bottom: 12px;
+        }
+        .item-thumb {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        .item-info { flex: 1; }
+        .item-name { font-weight: 600; margin-bottom: 4px; }
+        .item-qty { color: var(--gray); font-size: 14px; }
+        .item-price { font-weight: 700; color: var(--primary); margin-top: 8px; }
+        .price-large { font-size: 24px; font-weight: 800; color: var(--primary); }
+        
+        /* Customer Info */
+        .customer-info { display: flex; flex-direction: column; }
+        .customer-name { font-weight: 600; }
+        .customer-phone { font-size: 13px; color: var(--gray); }
+        .address-cell { max-width: 200px; }
+        
+        /* Discount Text */
+        .discount-text {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        /* Order ID */
+        .order-id {
+            font-family: monospace;
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        /* User Cell */
+        .user-cell {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        .user-name { font-weight: 600; }
+        
+        /* Product Preview */
+        .product-preview {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 32px;
+            padding: 24px;
+        }
+        .preview-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .preview-main-img {
+            width: 100%;
+            height: 300px;
+            object-fit: contain;
+            background: var(--light);
+            border-radius: 16px;
+        }
+        .preview-details h2 { font-size: 24px; margin-bottom: 8px; }
+        .preview-brand { color: var(--gray); margin-bottom: 16px; }
+        .preview-price {
+            display: flex;
+            gap: 16px;
+            align-items: baseline;
+            margin-bottom: 24px;
+        }
+        .preview-price .current {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--primary);
+        }
+        .preview-price .original {
+            font-size: 20px;
+            color: var(--gray);
+            text-decoration: line-through;
+        }
+        .preview-description, .preview-specs {
+            margin-bottom: 24px;
+        }
+        .preview-description h4,
+        .preview-specs h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        .description-content {
+            line-height: 1.8;
+            color: var(--gray);
+        }
+        .spec-item {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--gray-light);
+        }
+        
+        /* Notification */
+        .notification {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            padding: 16px 24px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 3000;
+            animation: slideInRight 0.4s;
+            border-left: 4px solid var(--secondary);
+        }
+        .notification.error { border-left-color: var(--accent); }
+        @keyframes slideInRight {
+            from { opacity: 0; transform: translateX(100px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        .notification i {
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 210, 106, 0.1);
+            color: var(--secondary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .notification.error i {
+            background: rgba(255, 107, 107, 0.1);
+            color: var(--accent);
+        }
+        
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .sidebar { 
+                transform: translateX(-100%); 
+                transition: transform 0.3s ease;
+            }
+            .sidebar.open {
+                transform: translateX(0);
+            }
+            .main-content { margin-left: 0; }
+            .grid-2, .grid-3 { grid-template-columns: 1fr; }
+            .form-row { grid-template-columns: 1fr; }
+            .product-preview { grid-template-columns: 1fr; }
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 20px;
+                gap: 16px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .login-box {
+                padding: 32px 24px;
+                margin: 16px;
+            }
+            .login-box h1 {
+                font-size: 24px;
+            }
+            
+            .top-bar {
+                padding: 16px 20px;
+            }
+            .top-bar h2 {
+                font-size: 18px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 16px;
+                gap: 12px;
+            }
+            .stat-card {
+                padding: 16px;
+            }
+            .stat-value {
+                font-size: 24px;
+            }
+            .stat-icon {
+                width: 40px;
+                height: 40px;
+                font-size: 16px;
+            }
+            
+            .content-area {
+                padding: 0 16px 16px;
+            }
+            
+            .card-header {
+                padding: 16px;
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+            
+            .card-body {
+                padding: 16px;
+            }
+            
+            .table-container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            table {
+                min-width: 600px;
+            }
+            
+            th, td {
+                padding: 12px;
+                font-size: 13px;
+            }
+            
+            .btn-add {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .modal-content {
+                max-width: 95%;
+                margin: 10px;
+            }
+            
+            .modal-header {
+                padding: 16px;
+            }
+            
+            .modal-body {
+                padding: 16px;
+            }
+            
+            .form-group {
+                margin-bottom: 16px;
+            }
+            
+            .preview-main-img {
+                height: 200px;
+            }
+            
+            .order-item {
+                flex-direction: column;
+                gap: 12px;
+            }
+            
+            .item-thumb {
+                width: 100%;
+                height: 150px;
+            }
+            
+            .notification {
+                left: 16px;
+                right: 16px;
+                top: 16px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .login-box {
+                padding: 24px 20px;
+            }
+            .login-box h1 {
+                font-size: 20px;
+            }
+            .login-box p {
+                font-size: 13px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                gap: 12px;
+                align-items: flex-start;
+            }
+            
+            .user-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .card-title {
+                font-size: 16px;
+            }
+            
+            .action-btns {
+                flex-wrap: wrap;
+            }
+            
+            .btn-action {
+                width: 32px;
+                height: 32px;
+            }
+            
+            .modal-content {
+                border-radius: 16px;
+            }
+            
+            .modal-title {
+                font-size: 16px;
+            }
+            
+            .close-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
+            
+            .file-upload {
+                padding: 24px;
+            }
+            
+            .file-upload i {
+                font-size: 36px;
+            }
+            
+            .preview-container {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .banner-image-wrapper {
+                height: 150px;
+            }
+            
+            .order-detail {
+                padding: 16px;
+            }
+            
+            .detail-section {
+                margin-bottom: 20px;
+                padding-bottom: 16px;
+            }
+            
+            .price-large {
+                font-size: 18px;
+            }
+            
+            .notification {
+                padding: 12px 16px;
+                font-size: 13px;
+            }
+            
+            .notification i {
+                width: 32px;
+                height: 32px;
+                font-size: 14px;
+            }
+        }
+        
+        /* Mobile Menu Toggle */
+        .menu-toggle {
+            display: none;
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1001;
+            width: 40px;
+            height: 40px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            box-shadow: var(--shadow-lg);
+        }
+        
+        @media (max-width: 1024px) {
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+        
+        /* Overlay for mobile sidebar */
+        .sidebar-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 999;
+        }
+        
+        @media (max-width: 1024px) {
+            .sidebar-overlay.show {
+                display: block;
+            }
+        }
+        
+        /* Landscape mode fixes */
+        @media (max-height: 500px) and (orientation: landscape) {
+            .login-page {
+                padding: 10px;
+            }
+            .login-box {
+                padding: 20px;
+            }
+            .modal-content {
+                max-height: 95vh;
+            }
+            .modal-body {
+                max-height: 60vh;
+            }
+        }
+        
+        /* Touch device optimizations */
+        @supports (-webkit-touch-callout: none) {
+            .btn-action,
+            .btn-add,
+            .btn-primary,
+            .btn-logout,
+            .btn-small,
+            .nav-item,
+            .close-btn {
+                -webkit-tap-highlight-color: transparent;
+            }
+            
+            input, select, textarea {
+                font-size: 16px !important;
+            }
+        }
+    </style>
+    <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+    <!-- Mobile Menu Toggle -->
+    <button class="menu-toggle" id="menuToggle" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+    
+    <!-- Sidebar Overlay for Mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="toggleSidebar()"></div>
+
+    <!-- Login Page -->
+    <div id="loginPage" class="login-page">
+        <div class="login-box">
+            <h1><i class="fas fa-gem"></i> Shrisilverbay</h1>
+            <p>Ultra Advanced Admin Panel</p>
+            <form class="login-form" id="adminLoginForm">
+                <input type="email" placeholder="Admin email" required>
+                <input type="password" placeholder="Admin password" required>
+                <button type="submit" class="btn-primary">Login to Dashboard</button>
+            </form>
+            <p class="error-msg" id="loginError"><i class="fas fa-exclamation-circle"></i> Invalid credentials</p>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h1><i class="fas fa-gem"></i> Shrisilverbay</h1>
+            </div>
+            <nav class="nav-menu">
+                <div class="nav-item active" data-section="dashboard"><i class="fas fa-home"></i><span>Dashboard</span></div>
+                <div class="nav-item" data-section="products"><i class="fas fa-box"></i><span>Products</span></div>
+                <div class="nav-item" data-section="categories"><i class="fas fa-tags"></i><span>Categories</span></div>
+                <div class="nav-item" data-section="banners"><i class="fas fa-image"></i><span>Banners</span></div>
+                <div class="nav-item" data-section="deals"><i class="fas fa-percent"></i><span>Deals & Offers</span></div>
+                <div class="nav-item" data-section="orders"><i class="fas fa-shopping-cart"></i><span>Orders</span></div>
+                <div class="nav-item" data-section="users"><i class="fas fa-users"></i><span>Users</span></div>
+                <div class="nav-item" data-section="settings"><i class="fas fa-cog"></i><span>Settings</span></div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <h2 id="pageTitle">Dashboard</h2>
+                <div class="user-actions">
+                    <span id="adminName">Admin</span>
+                    <button class="btn-logout" onclick="adminLogout()"><i class="fas fa-sign-out-alt"></i> Logout</button>
+                </div>
+            </div>
+
+            <div class="content-area">
+                <!-- Dashboard Section -->
+                <div id="dashboard" class="section active">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Total Products</span>
+                                <div class="stat-icon blue"><i class="fas fa-box"></i></div>
+                            </div>
+                            <div class="stat-value" id="statProducts">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Total Users</span>
+                                <div class="stat-icon green"><i class="fas fa-users"></i></div>
+                            </div>
+                            <div class="stat-value" id="statUsers">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Total Orders</span>
+                                <div class="stat-icon orange"><i class="fas fa-shopping-cart"></i></div>
+                            </div>
+                            <div class="stat-value" id="statOrders">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Pending Orders</span>
+                                <div class="stat-icon pink"><i class="fas fa-clock"></i></div>
+                            </div>
+                            <div class="stat-value" id="statPending">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Delivered</span>
+                                <div class="stat-icon green"><i class="fas fa-check-circle"></i></div>
+                            </div>
+                            <div class="stat-value" id="statDelivered">0</div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-header">
+                                <span>Revenue</span>
+                                <div class="stat-icon blue"><i class="fas fa-rupee-sign"></i></div>
+                            </div>
+                            <div class="stat-value" id="statRevenue">₹0</div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Recent Orders</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Order ID</th>
+                                            <th>Customer</th>
+                                            <th>Items</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="recentOrdersTable">
+                                        <tr><td colspan="5" class="empty-state"><i class="fas fa-inbox"></i><p>No orders yet</p></td></tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Products Section -->
+                <div id="products" class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">All Products</span>
+                            <button class="btn-add" onclick="showProductModal()"><i class="fas fa-plus"></i> Add Product</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr><th>Image</th><th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th></tr>
+                                    </thead>
+                                    <tbody id="productsTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Categories Section -->
+                <div id="categories" class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Categories</span>
+                            <button class="btn-add" onclick="showCategoryModal()"><i class="fas fa-plus"></i> Add Category</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead><tr><th>Image</th><th>Name</th><th>Subcategories</th><th>Actions</th></tr></thead>
+                                    <tbody id="categoriesTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Banners Section -->
+                <div id="banners" class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Hero Banners</span>
+                            <button class="btn-add" onclick="showBannerModal()"><i class="fas fa-plus"></i> Add Banner</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="grid-3" id="bannersGrid"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deals Section -->
+                <div id="deals" class="section">
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">Deals & Offers</span>
+                            <button class="btn-add" onclick="showDealModal()"><i class="fas fa-plus"></i> Add Deal</button>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead><tr><th>Icon</th><th>Title</th><th>Discount</th><th>Category</th><th>Status</th><th>Actions</th></tr></thead>
+                                    <tbody id="dealsTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orders Section -->
+                <div id="orders" class="section">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">All Orders</span></div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead>
+                                        <tr><th>Order ID</th><th>Customer</th><th>Address</th><th>Total</th><th>Status</th><th>Date</th><th>Actions</th></tr>
+                                    </thead>
+                                    <tbody id="ordersTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Users Section -->
+                <div id="users" class="section">
+                    <div class="card">
+                        <div class="card-header"><span class="card-title">All Users</span></div>
+                        <div class="card-body">
+                            <div class="table-container">
+                                <table>
+                                    <thead><tr><th>User</th><th>Email</th><th>Phone</th><th>Type</th><th>Actions</th></tr></thead>
+                                    <tbody id="usersTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settings" class="section">
+                    <div class="grid-2">
+                        <div class="card">
+                            <div class="card-header"><span class="card-title">Site Settings</span></div>
+                            <div class="card-body">
+                                <form id="settingsForm">
+                                    <div class="form-group">
+                                        <label>Website Name</label>
+                                        <input type="text" id="siteName" placeholder="SmartStore">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Currency Symbol</label>
+                                        <input type="text" id="siteCurrency" placeholder="₹">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Logo Upload</label>
+                                        <div class="file-upload" onclick="document.getElementById('logoUpload').click()">
+                                            <i class="fas fa-cloud-upload-alt"></i>
+                                            <p>Click to upload logo</p>
+                                            <input type="file" id="logoUpload" accept="image/*" onchange="handleLogoUpload(event)">
+                                        </div>
+                                        <img id="logoPreview" style="display: none; max-width: 200px; margin-top: 16px; border-radius: 12px;">
+                                    </div>
+                                    <button type="submit" class="btn-add">Save Settings</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h3 class="modal-title" id="productModalTitle">Add Product</h3>
+                <button class="close-btn" onclick="closeModal('productModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-group">
+                        <label>Product Images (Upload from gallery)</label>
+                        <div class="file-upload" onclick="document.getElementById('productImages').click()">
+                            <i class="fas fa-images"></i>
+                            <p>Click to upload images</p>
+                            <input type="file" id="productImages" multiple accept="image/*" onchange="handleProductImages(event)">
+                        </div>
+                        <div class="preview-container" id="productImagePreview"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Product Name *</label><input type="text" id="productName" required></div>
+                        <div class="form-group"><label>Brand</label><input type="text" id="productBrand" placeholder="e.g. Apple, Samsung"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Price (₹) *</label><input type="number" id="productPrice" required></div>
+                        <div class="form-group"><label>Original Price (₹)</label><input type="number" id="productOriginalPrice" placeholder="For discount display"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Stock *</label><input type="number" id="productStock" required></div>
+                        <div class="form-group"><label>Rating (0-5)</label><input type="number" id="productRating" min="0" max="5" step="0.1" value="4.5"></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Reviews Count</label><input type="number" id="productReviews" value="0"></div>
+                        <div class="form-group"><label>Category</label><select id="productCategory"></select></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Seller Name</label><input type="text" id="productSeller" placeholder="e.g. Official Store"></div>
+                        <div class="form-group"><label>Warranty</label><input type="text" id="productWarranty" placeholder="e.g. 1 Year Warranty"></div>
+                    </div>
+                    <div class="form-group">
+                        <label>Return Policy</label>
+                        <input type="text" id="productReturn" placeholder="e.g. 7 Days Replacement">
+                    </div>
+                    
+                    <!-- Rich Text Editor -->
+                    <div class="form-group">
+                        <label>Description (Rich Text)</label>
+                        <div class="rich-text-editor">
+                            <div class="rte-toolbar">
+                                <button type="button" class="rte-btn" data-command="bold" title="Bold"><i class="fas fa-bold"></i></button>
+                                <button type="button" class="rte-btn" data-command="italic" title="Italic"><i class="fas fa-italic"></i></button>
+                                <button type="button" class="rte-btn" data-command="underline" title="Underline"><i class="fas fa-underline"></i></button>
+                                <button type="button" class="rte-btn" data-command="strikeThrough" title="Strikethrough"><i class="fas fa-strikethrough"></i></button>
+                                <span style="width: 1px; background: var(--gray-light); margin: 0 4px;"></span>
+                                <button type="button" class="rte-btn" data-command="justifyLeft" title="Align Left"><i class="fas fa-align-left"></i></button>
+                                <button type="button" class="rte-btn" data-command="justifyCenter" title="Align Center"><i class="fas fa-align-center"></i></button>
+                                <button type="button" class="rte-btn" data-command="justifyRight" title="Align Right"><i class="fas fa-align-right"></i></button>
+                                <span style="width: 1px; background: var(--gray-light); margin: 0 4px;"></span>
+                                <button type="button" class="rte-btn" data-command="insertUnorderedList" title="Bullet List"><i class="fas fa-list-ul"></i></button>
+                                <button type="button" class="rte-btn" data-command="insertOrderedList" title="Number List"><i class="fas fa-list-ol"></i></button>
+                                <span style="width: 1px; background: var(--gray-light); margin: 0 4px;"></span>
+                                <button type="button" class="rte-btn" data-command="undo" title="Undo"><i class="fas fa-undo"></i></button>
+                                <button type="button" class="rte-btn" data-command="redo" title="Redo"><i class="fas fa-redo"></i></button>
+                            </div>
+                            <div class="rte-content" id="richTextEditor" contenteditable="true" placeholder="Enter detailed product description here...">Enter detailed product description here...</div>
+                        </div>
+                        <input type="hidden" id="productDescriptionHTML">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Specifications (JSON format)</label>
+                        <textarea id="productSpecs" rows="4" placeholder='{
+  "Display": "6.7 inch AMOLED",
+  "Processor": "Snapdragon 8 Gen 3",
+  "Battery": "5000mAh",
+  "Camera": "200MP Main Camera"
+}'></textarea>
+                    </div>
+                    <button type="submit" class="btn-add" style="width: 100%;">Save Product</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Category Modal -->
+    <div class="modal-overlay" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="categoryModalTitle">Add Category</h3>
+                <button class="close-btn" onclick="closeModal('categoryModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="categoryForm">
+                    <input type="hidden" id="categoryId">
+                    <div class="form-group">
+                        <label>Category Image</label>
+                        <div class="file-upload" onclick="document.getElementById('categoryImage').click()">
+                            <i class="fas fa-image"></i>
+                            <p>Click to upload image</p>
+                            <input type="file" id="categoryImage" accept="image/*" onchange="handleCategoryImage(event)">
+                        </div>
+                        <img id="categoryImagePreview" style="display: none; max-width: 200px; margin-top: 16px; border-radius: 12px;">
+                    </div>
+                    <div class="form-group"><label>Category Name *</label><input type="text" id="categoryName" required></div>
+                    <div class="form-group"><label>Subcategories (comma separated)</label><input type="text" id="categorySubcategories" placeholder="Mobiles, Laptops, Tablets"></div>
+                    <button type="submit" class="btn-add" style="width: 100%;">Save Category</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Banner Modal -->
+    <div class="modal-overlay" id="bannerModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="bannerModalTitle">Add Banner</h3>
+                <button class="close-btn" onclick="closeModal('bannerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="bannerForm">
+                    <input type="hidden" id="bannerId">
+                    <div class="form-group">
+                        <label>Banner Image</label>
+                        <div class="file-upload" onclick="document.getElementById('bannerImage').click()">
+                            <i class="fas fa-image"></i>
+                            <p>Click to upload banner</p>
+                            <input type="file" id="bannerImage" accept="image/*" onchange="handleBannerImage(event)">
+                        </div>
+                        <img id="bannerImagePreview" style="display: none; width: 100%; height: 200px; object-fit: cover; margin-top: 16px; border-radius: 12px;">
+                    </div>
+                    <div class="form-group"><label>Title *</label><input type="text" id="bannerTitle" required></div>
+                    <div class="form-group"><label>Subtitle</label><input type="text" id="bannerSubtitle" placeholder="Short description"></div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Button Text</label><input type="text" id="bannerButton" value="Shop Now"></div>
+                        <div class="form-group"><label>Background Color</label><input type="color" id="bannerColor" value="#6C63FF" style="height: 50px;"></div>
+                    </div>
+                    <button type="submit" class="btn-add" style="width: 100%;">Save Banner</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Deal Modal -->
+    <div class="modal-overlay" id="dealModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="dealModalTitle">Add Deal</h3>
+                <button class="close-btn" onclick="closeModal('dealModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="dealForm">
+                    <input type="hidden" id="dealId">
+                    <div class="form-row">
+                        <div class="form-group"><label>Icon Class</label><input type="text" id="dealIcon" value="fa-percent" placeholder="fa-percent"></div>
+                        <div class="form-group"><label>Title *</label><input type="text" id="dealTitle" required></div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group"><label>Discount Text</label><input type="text" id="dealDiscount" placeholder="Up to 50% off"></div>
+                        <div class="form-group"><label>Link Category</label><select id="dealCategory"></select></div>
+                    </div>
+                    <div class="form-group">
+                        <label><input type="checkbox" id="dealActive" checked style="width: auto; margin-right: 8px;"> Active</label>
+                    </div>
+                    <button type="submit" class="btn-add" style="width: 100%;">Save Deal</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>

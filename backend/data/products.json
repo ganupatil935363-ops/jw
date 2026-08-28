@@ -1,0 +1,426 @@
+{
+  "products": [
+    {
+      "id": 100001,
+      "name": "Classic Gold Necklace",
+      "brand": "Shrisilverbay",
+      "price": 28999,
+      "originalPrice": 32479,
+      "discount": 10,
+      "description": "Beautiful classic gold necklace crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774818912056-353510218.jpeg"
+      ],
+      "category": "Necklace",
+      "subcategory": "Gold Necklace",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Necklace"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "necklace"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    },
+    {
+      "id": 100002,
+      "name": "Elegant Jhumka Earrings",
+      "brand": "Shrisilverbay",
+      "price": 8999,
+      "originalPrice": 10079,
+      "discount": 10,
+      "description": "Beautiful elegant jhumka earrings crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774842835628-141971660.jpeg"
+      ],
+      "category": "Earrings",
+      "subcategory": "Jhumka",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Earrings"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "earrings"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    },
+    {
+      "id": 100003,
+      "name": "Traditional Gold Bangles",
+      "brand": "Shrisilverbay",
+      "price": 18999,
+      "originalPrice": 21279,
+      "discount": 10,
+      "description": "Beautiful traditional gold bangles crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774818912056-353510218.jpeg"
+      ],
+      "category": "Bangles",
+      "subcategory": "Gold Bangles",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Bangles"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "bangles"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    },
+    {
+      "id": 100004,
+      "name": "Diamond Solitaire Ring",
+      "brand": "Shrisilverbay",
+      "price": 34999,
+      "originalPrice": 39199,
+      "discount": 10,
+      "description": "Beautiful diamond solitaire ring crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774842835628-141971660.jpeg"
+      ],
+      "category": "Rings",
+      "subcategory": "Diamond Rings",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Rings"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "rings"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    },
+    {
+      "id": 100005,
+      "name": "22K Gold Chain",
+      "brand": "Shrisilverbay",
+      "price": 24999,
+      "originalPrice": 27999,
+      "discount": 10,
+      "description": "Beautiful 22k gold chain crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774818912056-353510218.jpeg"
+      ],
+      "category": "Chains",
+      "subcategory": "Gold Chains",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Chains"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "chains"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    },
+    {
+      "id": 100006,
+      "name": "Designer Gold Anklets",
+      "brand": "Shrisilverbay",
+      "price": 12999,
+      "originalPrice": 14559,
+      "discount": 10,
+      "description": "Beautiful designer gold anklets crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774842835628-141971660.jpeg"
+      ],
+      "category": "Anklets",
+      "subcategory": "Gold Anklets",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Anklets"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "anklets"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    },
+    {
+      "id": 100007,
+      "name": "Bridal Gold Hara",
+      "brand": "Shrisilverbay",
+      "price": 45999,
+      "originalPrice": 51519,
+      "discount": 10,
+      "description": "Beautiful bridal gold hara crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774818912056-353510218.jpeg"
+      ],
+      "category": "Hara",
+      "subcategory": "Bridal Hara",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Hara"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "hara"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    },
+    {
+      "id": 100008,
+      "name": "Temple Design Vanki",
+      "brand": "Shrisilverbay",
+      "price": 21999,
+      "originalPrice": 24639,
+      "discount": 10,
+      "description": "Beautiful temple design vanki crafted for timeless elegance and special occasions.",
+      "images": [
+        "/uploads/products/1774842835628-141971660.jpeg"
+      ],
+      "category": "Vanki",
+      "subcategory": "Temple Vanki",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 0,
+      "specs": {
+        "material": "22K Gold",
+        "collection": "Vanki"
+      },
+      "variants": [],
+      "tags": [
+        "jewellery",
+        "shrisilverbay",
+        "vanki"
+      ],
+      "seller": "Shrisilverbay Jewellery",
+      "delivery": {
+        "free": true,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "7 days return",
+      "warranty": "Manufacturer warranty"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Necklace",
+      "icon": "fa-gem",
+      "subcategories": [
+        "Gold Necklace",
+        "Diamond Necklace",
+        "Bridal Necklace"
+      ],
+      "image": "/uploads/products/1774818912056-353510218.jpeg"
+    },
+    {
+      "name": "Earrings",
+      "icon": "fa-circle",
+      "subcategories": [
+        "Studs",
+        "Jhumka",
+        "Hoops"
+      ],
+      "image": "/uploads/products/1774842835628-141971660.jpeg"
+    },
+    {
+      "name": "Bangles",
+      "icon": "fa-ring",
+      "subcategories": [
+        "Gold Bangles",
+        "Diamond Bangles",
+        "Bracelets"
+      ],
+      "image": "/uploads/products/1774818912056-353510218.jpeg"
+    },
+    {
+      "name": "Rings",
+      "icon": "fa-ring",
+      "subcategories": [
+        "Engagement Rings",
+        "Diamond Rings",
+        "Gold Rings"
+      ],
+      "image": "/uploads/products/1774842835628-141971660.jpeg"
+    },
+    {
+      "name": "Chains",
+      "icon": "fa-link",
+      "subcategories": [
+        "Gold Chains",
+        "Diamond Chains",
+        "Men Chains"
+      ],
+      "image": "/uploads/products/1774818912056-353510218.jpeg"
+    },
+    {
+      "name": "Anklets",
+      "icon": "fa-link",
+      "subcategories": [
+        "Gold Anklets",
+        "Silver Anklets",
+        "Designer Anklets"
+      ],
+      "image": "/uploads/products/1774842835628-141971660.jpeg"
+    },
+    {
+      "name": "Hara",
+      "icon": "fa-gem",
+      "subcategories": [
+        "Gold Hara",
+        "Bridal Hara",
+        "Temple Hara"
+      ],
+      "image": "/uploads/products/1774818912056-353510218.jpeg"
+    },
+    {
+      "name": "Vanki",
+      "icon": "fa-gem",
+      "subcategories": [
+        "Gold Vanki",
+        "Bridal Vanki",
+        "Temple Vanki"
+      ],
+      "image": "/uploads/products/1774842835628-141971660.jpeg"
+    }
+  ],
+  "banners": [
+    {
+      "id": 1,
+      "title": "Shrisilverbay Jewellery",
+      "subtitle": "Timeless designs for every special occasion",
+      "image": "/uploads/products/1774818912056-353510218.jpeg",
+      "link": "#products",
+      "color": "#b08d3c"
+    },
+    {
+      "id": 2,
+      "title": "Bridal Jewellery Collection",
+      "subtitle": "Elegant Hara, Vanki, Necklaces and more",
+      "image": "/uploads/products/1774842835628-141971660.jpeg",
+      "link": "#products",
+      "color": "#8a6a25"
+    }
+  ],
+  "deals": [
+    {
+      "title": "Necklace",
+      "discount": "Up to 20%",
+      "icon": "fa-gem",
+      "color": "#b08d3c"
+    },
+    {
+      "title": "Earrings",
+      "discount": "Up to 20%",
+      "icon": "fa-circle",
+      "color": "#b08d3c"
+    },
+    {
+      "title": "Bangles",
+      "discount": "Up to 20%",
+      "icon": "fa-ring",
+      "color": "#b08d3c"
+    },
+    {
+      "title": "Rings",
+      "discount": "Up to 20%",
+      "icon": "fa-ring",
+      "color": "#b08d3c"
+    },
+    {
+      "title": "Chains",
+      "discount": "Up to 20%",
+      "icon": "fa-link",
+      "color": "#b08d3c"
+    },
+    {
+      "title": "Anklets",
+      "discount": "Up to 20%",
+      "icon": "fa-link",
+      "color": "#b08d3c"
+    },
+    {
+      "title": "Hara",
+      "discount": "Up to 20%",
+      "icon": "fa-gem",
+      "color": "#b08d3c"
+    },
+    {
+      "title": "Vanki",
+      "discount": "Up to 20%",
+      "icon": "fa-gem",
+      "color": "#b08d3c"
+    }
+  ]
+}
