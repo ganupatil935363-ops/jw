@@ -1,426 +1,868 @@
 {
   "products": [
     {
-      "id": 100001,
-      "name": "Classic Gold Necklace",
-      "brand": "Shrisilverbay",
-      "price": 28999,
-      "originalPrice": 32479,
+      "id": 2,
+      "name": "Samsung Galaxy S24 Ultra",
+      "brand": "Samsung",
+      "price": 129999,
+      "originalPrice": 144999,
       "discount": 10,
-      "description": "Beautiful classic gold necklace crafted for timeless elegance and special occasions.",
+      "description": "The Samsung Galaxy S24 Ultra redefines mobile innovation with AI-powered features, 200MP camera, and integrated S Pen for ultimate productivity.",
       "images": [
-        "/uploads/products/1774818912056-353510218.jpeg"
+        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=500",
+        "https://images.unsplash.com/photo-1616406432452-07bc59317528?w=500"
       ],
-      "category": "Necklace",
-      "subcategory": "Gold Necklace",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
+      "category": "Mobiles",
+      "subcategory": "Smartphones",
+      "stock": 30,
+      "rating": 4.7,
+      "reviews": 892,
       "specs": {
-        "material": "22K Gold",
-        "collection": "Necklace"
+        "display": "6.8-inch Dynamic AMOLED 2X",
+        "processor": "Snapdragon 8 Gen 3",
+        "storage": "512GB",
+        "camera": "200MP Main + 50MP Telephoto + 12MP Ultra Wide",
+        "battery": "5000 mAh",
+        "os": "Android 14"
       },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "necklace"
+      "variants": [
+        {
+          "color": "Titanium Black",
+          "image": "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?w=500"
+        },
+        {
+          "color": "Titanium Gray",
+          "image": "https://images.unsplash.com/photo-1616406432452-07bc59317528?w=500"
+        }
       ],
-      "seller": "Shrisilverbay Jewellery",
+      "tags": [
+        "flagship",
+        "5G",
+        "S Pen"
+      ],
+      "seller": "Samsung Authorized Dealer",
+      "delivery": {
+        "free": true,
+        "estimated": "2-3 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "1 year manufacturer warranty"
+    },
+    {
+      "id": 4,
+      "name": "MacBook Pro 14-inch M3 Pro",
+      "brand": "Apple",
+      "price": 199900,
+      "originalPrice": 219900,
+      "discount": 9,
+      "description": "Supercharged by M3 Pro chip with 11-core CPU and 14-core GPU. Stunning 14.2-inch Liquid Retina XDR display with extreme dynamic range.",
+      "images": [
+        "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500",
+        "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500"
+      ],
+      "category": "Laptops",
+      "subcategory": "MacBooks",
+      "stock": 15,
+      "rating": 4.9,
+      "reviews": 567,
+      "specs": {
+        "display": "14.2-inch Liquid Retina XDR",
+        "processor": "Apple M3 Pro",
+        "ram": "18GB Unified Memory",
+        "storage": "512GB SSD",
+        "battery": "Up to 18 hours",
+        "ports": "3x Thunderbolt 4, HDMI, SD Card, MagSafe 3"
+      },
+      "variants": [
+        {
+          "color": "Space Black",
+          "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=500"
+        },
+        {
+          "color": "Silver",
+          "image": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=500"
+        }
+      ],
+      "tags": [
+        "pro",
+        "creative",
+        "performance"
+      ],
+      "seller": "Apple Official Store",
+      "delivery": {
+        "free": true,
+        "estimated": "2-3 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "1 year manufacturer warranty"
+    },
+    {
+      "id": 5,
+      "name": "Nike Air Jordan 1 Retro High",
+      "brand": "Nike",
+      "price": 14995,
+      "originalPrice": 16995,
+      "discount": 12,
+      "description": "The Air Jordan 1 Retro High remakes the classic sneaker with premium materials and cushioning for all-day comfort. Iconic style that never fades.",
+      "images": [
+        "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=500",
+        "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500"
+      ],
+      "category": "Fashion",
+      "subcategory": "Footwear",
+      "stock": 40,
+      "rating": 4.5,
+      "reviews": 3421,
+      "specs": {
+        "material": "Full-grain leather",
+        "sole": "Rubber outsole",
+        "closure": "Lace-up",
+        "features": "Air-Sole unit, Padded collar"
+      },
+      "sizes": [
+        "UK 6",
+        "UK 7",
+        "UK 8",
+        "UK 9",
+        "UK 10",
+        "UK 11"
+      ],
+      "variants": [
+        {
+          "color": "Chicago",
+          "image": "https://images.unsplash.com/photo-1556906781-9a412961c28c?w=500"
+        },
+        {
+          "color": "Black/White",
+          "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=500"
+        }
+      ],
+      "tags": [
+        "sneakers",
+        "streetwear",
+        "classic"
+      ],
+      "seller": "Nike Official",
+      "delivery": {
+        "free": false,
+        "fee": 99,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "15 days return",
+      "warranty": "No warranty"
+    },
+    {
+      "id": 8,
+      "name": "Canon EOS R6 Mark II Mirrorless Camera",
+      "brand": "Canon",
+      "price": 215990,
+      "originalPrice": 239990,
+      "discount": 10,
+      "description": "The EOS R6 Mark II sets new standards in performance with 40fps continuous shooting, 4K 60p video, and incredible low-light autofocus.",
+      "images": [
+        "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500",
+        "https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=500"
+      ],
+      "category": "Electronics",
+      "subcategory": "Cameras",
+      "stock": 8,
+      "rating": 4.9,
+      "reviews": 234,
+      "specs": {
+        "sensor": "24.2MP Full-Frame CMOS",
+        "processor": "DIGIC X",
+        "video": "4K 60p, Full HD 180p",
+        "iso": "100-102400",
+        "stabilization": "8-stop In-Body IS"
+      },
+      "variants": [
+        {
+          "color": "Black",
+          "image": "https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500"
+        }
+      ],
+      "tags": [
+        "professional",
+        "mirrorless",
+        "video"
+      ],
+      "seller": "Canon Store",
+      "delivery": {
+        "free": true,
+        "estimated": "2-3 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "2 years manufacturer warranty"
+    },
+    {
+      "id": 9,
+      "name": "Titan Grandmaster Automatic Watch",
+      "brand": "Titan",
+      "price": 24995,
+      "originalPrice": 29995,
+      "discount": 17,
+      "description": "A masterpiece of engineering and elegance. The Grandmaster features a sophisticated automatic movement and sapphire crystal glass.",
+      "images": [
+        "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500",
+        "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=500"
+      ],
+      "category": "Fashion",
+      "subcategory": "Watches",
+      "stock": 25,
+      "rating": 4.7,
+      "reviews": 567,
+      "specs": {
+        "movement": "Automatic Mechanical",
+        "case": "Stainless Steel",
+        "glass": "Sapphire Crystal",
+        "waterResistant": "50M",
+        "diameter": "42mm"
+      },
+      "variants": [
+        {
+          "color": "Black Dial",
+          "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=500"
+        },
+        {
+          "color": "Blue Dial",
+          "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=500"
+        }
+      ],
+      "tags": [
+        "luxury",
+        "automatic",
+        "classic"
+      ],
+      "seller": "Titan Official",
+      "delivery": {
+        "free": true,
+        "estimated": "2-3 days"
+      },
+      "returnPolicy": "10 days return",
+      "warranty": "2 years warranty"
+    },
+    {
+      "id": 10,
+      "name": "BoAt Rockerz 550 Wireless Headphones",
+      "brand": "BoAt",
+      "price": 1999,
+      "originalPrice": 4999,
+      "discount": 60,
+      "description": "Immersive sound with 50mm drivers and up to 20 hours playback. Soft padded ear cushions for comfortable extended listening.",
+      "images": [
+        "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500"
+      ],
+      "category": "Electronics",
+      "subcategory": "Audio",
+      "stock": 150,
+      "rating": 4.2,
+      "reviews": 8923,
+      "specs": {
+        "driver": "50mm",
+        "battery": "20 hours",
+        "connectivity": "Bluetooth 5.0, AUX",
+        "features": "Dual modes, Physical Noise Isolation"
+      },
+      "variants": [
+        {
+          "color": "Black",
+          "image": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=500"
+        },
+        {
+          "color": "Red",
+          "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=500"
+        }
+      ],
+      "tags": [
+        "budget",
+        "wireless",
+        "popular"
+      ],
+      "seller": "BoAt Official",
+      "delivery": {
+        "free": true,
+        "estimated": "1-2 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "1 year warranty"
+    },
+    {
+      "id": 11,
+      "name": "Samsung 55-inch Neo QLED 4K TV",
+      "brand": "Samsung",
+      "price": 149990,
+      "originalPrice": 179990,
+      "discount": 17,
+      "description": "Quantum Matrix Technology with Mini LEDs delivers stunning picture quality. Neural Quantum Processor 4K optimizes every scene.",
+      "images": [
+        "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=500"
+      ],
+      "category": "Electronics",
+      "subcategory": "TVs",
+      "stock": 10,
+      "rating": 4.6,
+      "reviews": 445,
+      "specs": {
+        "display": "55-inch Neo QLED 4K",
+        "resolution": "3840 x 2160",
+        "processor": "Neural Quantum Processor 4K",
+        "hdr": "Quantum HDR 24x",
+        "smart": "Tizen OS"
+      },
+      "variants": [
+        {
+          "color": "Black",
+          "size": "55-inch",
+          "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=500"
+        }
+      ],
+      "tags": [
+        "smart-tv",
+        "4K",
+        "premium"
+      ],
+      "seller": "Samsung Authorized",
       "delivery": {
         "free": true,
         "estimated": "3-5 days"
       },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
+      "returnPolicy": "7 days replacement",
+      "warranty": "1 year manufacturer warranty"
     },
     {
-      "id": 100002,
-      "name": "Elegant Jhumka Earrings",
-      "brand": "Shrisilverbay",
-      "price": 8999,
-      "originalPrice": 10079,
-      "discount": 10,
-      "description": "Beautiful elegant jhumka earrings crafted for timeless elegance and special occasions.",
+      "id": 12,
+      "name": "Apple iPad Pro 12.9-inch M2",
+      "brand": "Apple",
+      "price": 112900,
+      "originalPrice": 122900,
+      "discount": 8,
+      "description": "Supercharged by the Apple M2 chip. The ultimate iPad experience with XDR display and pro camera system.",
+      "images": [
+        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500"
+      ],
+      "category": "Mobiles",
+      "subcategory": "Tablets",
+      "stock": 20,
+      "rating": 4.8,
+      "reviews": 678,
+      "specs": {
+        "display": "12.9-inch Liquid Retina XDR",
+        "processor": "Apple M2",
+        "storage": "256GB",
+        "camera": "12MP Wide + 10MP Ultra Wide",
+        "battery": "All-day battery"
+      },
+      "variants": [
+        {
+          "color": "Space Gray",
+          "image": "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?w=500"
+        },
+        {
+          "color": "Silver",
+          "image": "https://images.unsplash.com/photo-1561154464-82e9adf32764?w=500"
+        }
+      ],
+      "tags": [
+        "productivity",
+        "creative",
+        "professional"
+      ],
+      "seller": "Apple Official Store",
+      "delivery": {
+        "free": true,
+        "estimated": "1-2 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "1 year manufacturer warranty"
+    },
+    {
+      "id": 13,
+      "name": "Levi's 511 Slim Fit Jeans",
+      "brand": "Levi's",
+      "price": 2999,
+      "originalPrice": 3999,
+      "discount": 25,
+      "description": "A modern slim with room to move. The 511 Slim Fit Jean features a lean look with added stretch for all-day comfort.",
+      "images": [
+        "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?w=500"
+      ],
+      "category": "Fashion",
+      "subcategory": "Clothing",
+      "stock": 100,
+      "rating": 4.3,
+      "reviews": 5234,
+      "specs": {
+        "material": "99% Cotton, 1% Elastane",
+        "fit": "Slim",
+        "wash": "Dark Indigo"
+      },
+      "sizes": [
+        "28",
+        "30",
+        "32",
+        "34",
+        "36",
+        "38"
+      ],
+      "variants": [
+        {
+          "color": "Dark Indigo",
+          "image": "https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?w=500"
+        },
+        {
+          "color": "Light Blue",
+          "image": "https://images.unsplash.com/photo-1582418702059-97ebafb35d09?w=500"
+        }
+      ],
+      "tags": [
+        "casual",
+        "denim",
+        "classic"
+      ],
+      "seller": "Levi's Official",
+      "delivery": {
+        "free": false,
+        "fee": 99,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "15 days return",
+      "warranty": "No warranty"
+    },
+    {
+      "id": 14,
+      "name": "H&M Premium Cotton T-Shirt Pack",
+      "brand": "H&M",
+      "price": 1299,
+      "originalPrice": 1999,
+      "discount": 35,
+      "description": "Pack of 3 premium cotton t-shirts. Soft, breathable fabric with classic fit for everyday comfort.",
+      "images": [
+        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
+      ],
+      "category": "Fashion",
+      "subcategory": "Clothing",
+      "stock": 200,
+      "rating": 4.1,
+      "reviews": 3421,
+      "specs": {
+        "material": "100% Organic Cotton",
+        "fit": "Regular Fit",
+        "pack": "Pack of 3"
+      },
+      "sizes": [
+        "S",
+        "M",
+        "L",
+        "XL",
+        "XXL"
+      ],
+      "variants": [
+        {
+          "color": "White/Grey/Black",
+          "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500"
+        }
+      ],
+      "tags": [
+        "basics",
+        "essential",
+        "value"
+      ],
+      "seller": "H&M Official",
+      "delivery": {
+        "free": false,
+        "fee": 99,
+        "estimated": "3-5 days"
+      },
+      "returnPolicy": "15 days return",
+      "warranty": "No warranty"
+    },
+    {
+      "id": 16,
+      "name": "LG 7kg Fully Automatic Washing Machine",
+      "brand": "LG",
+      "price": 25990,
+      "originalPrice": 31990,
+      "discount": 19,
+      "description": "Smart Inverter Technology with TurboDrum for powerful wash. SmartThinQ Wi-Fi enabled for remote control.",
+      "images": [
+        "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=500"
+      ],
+      "category": "Appliances",
+      "subcategory": "Washing Machines",
+      "stock": 20,
+      "rating": 4.5,
+      "reviews": 2345,
+      "specs": {
+        "capacity": "7 kg",
+        "type": "Fully Automatic Top Load",
+        "technology": "Smart Inverter",
+        "features": "TurboDrum, SmartThinQ Wi-Fi, Auto Balance",
+        "rating": "5 Star"
+      },
+      "variants": [
+        {
+          "color": "Middle Free Silver",
+          "image": "https://images.unsplash.com/photo-1626806787461-102c1bfaaea1?w=500"
+        }
+      ],
+      "tags": [
+        "wifi-enabled",
+        "inverter",
+        "family"
+      ],
+      "seller": "LG Official Store",
+      "delivery": {
+        "free": true,
+        "estimated": "5-7 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "2 years comprehensive warranty"
+    },
+    {
+      "id": 17,
+      "name": "Sony PlayStation 5 Console",
+      "brand": "Sony",
+      "price": 49990,
+      "originalPrice": 54990,
+      "discount": 9,
+      "description": "Experience lightning fast loading with an ultra-high speed SSD, deeper immersion with support for haptic feedback.",
+      "images": [
+        "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500"
+      ],
+      "category": "Gaming",
+      "subcategory": "Consoles",
+      "stock": 8,
+      "rating": 4.9,
+      "reviews": 5678,
+      "specs": {
+        "cpu": "x86-64-AMD Ryzen Zen 2",
+        "gpu": "AMD RDNA 2",
+        "storage": "825GB SSD",
+        "resolution": "4K 120Hz",
+        "features": "Ray Tracing, 3D Audio, Haptic Feedback"
+      },
+      "variants": [
+        {
+          "color": "White",
+          "image": "https://images.unsplash.com/photo-1606813907291-d86efa9b94db?w=500"
+        }
+      ],
+      "tags": [
+        "gaming",
+        "4K",
+        "popular"
+      ],
+      "seller": "Sony Authorized",
+      "delivery": {
+        "free": true,
+        "estimated": "2-3 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "1 year manufacturer warranty"
+    },
+    {
+      "id": 18,
+      "name": "Logitech G502 HERO Gaming Mouse",
+      "brand": "Logitech",
+      "price": 4995,
+      "originalPrice": 6495,
+      "discount": 23,
+      "description": "High Performance Gaming Mouse with HERO 25K sensor. 11 programmable buttons and customizable RGB lighting.",
+      "images": [
+        "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500"
+      ],
+      "category": "Gaming",
+      "subcategory": "Accessories",
+      "stock": 75,
+      "rating": 4.7,
+      "reviews": 4532,
+      "specs": {
+        "sensor": "HERO 25K",
+        "dpi": "25,600",
+        "buttons": "11 programmable",
+        "features": "RGB Lighting, Adjustable Weight",
+        "connection": "Wired USB"
+      },
+      "variants": [
+        {
+          "color": "Black",
+          "image": "https://images.unsplash.com/photo-1527814050087-3793815479db?w=500"
+        }
+      ],
+      "tags": [
+        "gaming",
+        "precision",
+        "rgb"
+      ],
+      "seller": "Logitech Official",
+      "delivery": {
+        "free": true,
+        "estimated": "1-2 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "2 years warranty"
+    },
+    {
+      "id": 19,
+      "name": "Ray-Ban Aviator Classic Sunglasses",
+      "brand": "Ray-Ban",
+      "price": 7990,
+      "originalPrice": 9990,
+      "discount": 20,
+      "description": "Iconic Aviator design with gold metal frame and G-15 lenses. 100% UV protection with timeless style.",
+      "images": [
+        "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500"
+      ],
+      "category": "Fashion",
+      "subcategory": "Accessories",
+      "stock": 45,
+      "rating": 4.6,
+      "reviews": 2890,
+      "specs": {
+        "frame": "Metal",
+        "lens": "Glass G-15",
+        "protection": "100% UV",
+        "size": "58mm"
+      },
+      "variants": [
+        {
+          "color": "Gold/Green",
+          "image": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=500"
+        },
+        {
+          "color": "Silver/Blue",
+          "image": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500"
+        }
+      ],
+      "tags": [
+        "classic",
+        "premium",
+        "uv-protection"
+      ],
+      "seller": "Ray-Ban Store",
+      "delivery": {
+        "free": true,
+        "estimated": "2-3 days"
+      },
+      "returnPolicy": "15 days return",
+      "warranty": "1 year warranty"
+    },
+    {
+      "id": 20,
+      "name": "Fastrack Reflex 3.0 Smart Band",
+      "brand": "Fastrack",
+      "price": 1995,
+      "originalPrice": 3495,
+      "discount": 43,
+      "description": "Fitness tracker with full touch color display. 10+ sports modes and 5ATM water resistance.",
+      "images": [
+        "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500"
+      ],
+      "category": "Electronics",
+      "subcategory": "Wearables",
+      "stock": 120,
+      "rating": 4,
+      "reviews": 5678,
+      "specs": {
+        "display": "Color Touch Display",
+        "battery": "Up to 10 days",
+        "sensors": "Heart Rate, SpO2, Sleep Tracking",
+        "waterResistant": "5ATM",
+        "features": "10+ Sports Modes, Call Notifications"
+      },
+      "variants": [
+        {
+          "color": "Black",
+          "image": "https://images.unsplash.com/photo-1575311373937-040b8e1fd5b6?w=500"
+        },
+        {
+          "color": "Blue",
+          "image": "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=500"
+        }
+      ],
+      "tags": [
+        "fitness",
+        "budget",
+        "waterproof"
+      ],
+      "seller": "Fastrack Official",
+      "delivery": {
+        "free": true,
+        "estimated": "1-2 days"
+      },
+      "returnPolicy": "7 days replacement",
+      "warranty": "1 year warranty"
+    },
+    {
+      "id": 1774842931080,
+      "name": "suyeb",
+      "brand": "shuyeb",
+      "price": 8000,
+      "originalPrice": 7999,
+      "stock": 80,
+      "rating": 4.5,
+      "reviews": 0,
+      "category": "Mobiles",
+      "seller": "dfs",
+      "warranty": "1",
+      "returnPolicy": "vncn",
+      "description": "<b><i><u><strike>hgf</strike></u></i></b>",
       "images": [
         "/uploads/products/1774842835628-141971660.jpeg"
       ],
-      "category": "Earrings",
-      "subcategory": "Jhumka",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
-      "specs": {
-        "material": "22K Gold",
-        "collection": "Earrings"
-      },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "earrings"
-      ],
-      "seller": "Shrisilverbay Jewellery",
+      "specs": {},
       "delivery": {
         "free": true,
-        "estimated": "3-5 days"
+        "estimated": "2-3 days"
       },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
-    },
-    {
-      "id": 100003,
-      "name": "Traditional Gold Bangles",
-      "brand": "Shrisilverbay",
-      "price": 18999,
-      "originalPrice": 21279,
-      "discount": 10,
-      "description": "Beautiful traditional gold bangles crafted for timeless elegance and special occasions.",
-      "images": [
-        "/uploads/products/1774818912056-353510218.jpeg"
-      ],
-      "category": "Bangles",
-      "subcategory": "Gold Bangles",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
-      "specs": {
-        "material": "22K Gold",
-        "collection": "Bangles"
-      },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "bangles"
-      ],
-      "seller": "Shrisilverbay Jewellery",
-      "delivery": {
-        "free": true,
-        "estimated": "3-5 days"
-      },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
-    },
-    {
-      "id": 100004,
-      "name": "Diamond Solitaire Ring",
-      "brand": "Shrisilverbay",
-      "price": 34999,
-      "originalPrice": 39199,
-      "discount": 10,
-      "description": "Beautiful diamond solitaire ring crafted for timeless elegance and special occasions.",
-      "images": [
-        "/uploads/products/1774842835628-141971660.jpeg"
-      ],
-      "category": "Rings",
-      "subcategory": "Diamond Rings",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
-      "specs": {
-        "material": "22K Gold",
-        "collection": "Rings"
-      },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "rings"
-      ],
-      "seller": "Shrisilverbay Jewellery",
-      "delivery": {
-        "free": true,
-        "estimated": "3-5 days"
-      },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
-    },
-    {
-      "id": 100005,
-      "name": "22K Gold Chain",
-      "brand": "Shrisilverbay",
-      "price": 24999,
-      "originalPrice": 27999,
-      "discount": 10,
-      "description": "Beautiful 22k gold chain crafted for timeless elegance and special occasions.",
-      "images": [
-        "/uploads/products/1774818912056-353510218.jpeg"
-      ],
-      "category": "Chains",
-      "subcategory": "Gold Chains",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
-      "specs": {
-        "material": "22K Gold",
-        "collection": "Chains"
-      },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "chains"
-      ],
-      "seller": "Shrisilverbay Jewellery",
-      "delivery": {
-        "free": true,
-        "estimated": "3-5 days"
-      },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
-    },
-    {
-      "id": 100006,
-      "name": "Designer Gold Anklets",
-      "brand": "Shrisilverbay",
-      "price": 12999,
-      "originalPrice": 14559,
-      "discount": 10,
-      "description": "Beautiful designer gold anklets crafted for timeless elegance and special occasions.",
-      "images": [
-        "/uploads/products/1774842835628-141971660.jpeg"
-      ],
-      "category": "Anklets",
-      "subcategory": "Gold Anklets",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
-      "specs": {
-        "material": "22K Gold",
-        "collection": "Anklets"
-      },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "anklets"
-      ],
-      "seller": "Shrisilverbay Jewellery",
-      "delivery": {
-        "free": true,
-        "estimated": "3-5 days"
-      },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
-    },
-    {
-      "id": 100007,
-      "name": "Bridal Gold Hara",
-      "brand": "Shrisilverbay",
-      "price": 45999,
-      "originalPrice": 51519,
-      "discount": 10,
-      "description": "Beautiful bridal gold hara crafted for timeless elegance and special occasions.",
-      "images": [
-        "/uploads/products/1774818912056-353510218.jpeg"
-      ],
-      "category": "Hara",
-      "subcategory": "Bridal Hara",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
-      "specs": {
-        "material": "22K Gold",
-        "collection": "Hara"
-      },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "hara"
-      ],
-      "seller": "Shrisilverbay Jewellery",
-      "delivery": {
-        "free": true,
-        "estimated": "3-5 days"
-      },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
-    },
-    {
-      "id": 100008,
-      "name": "Temple Design Vanki",
-      "brand": "Shrisilverbay",
-      "price": 21999,
-      "originalPrice": 24639,
-      "discount": 10,
-      "description": "Beautiful temple design vanki crafted for timeless elegance and special occasions.",
-      "images": [
-        "/uploads/products/1774842835628-141971660.jpeg"
-      ],
-      "category": "Vanki",
-      "subcategory": "Temple Vanki",
-      "stock": 20,
-      "rating": 4.8,
-      "reviews": 0,
-      "specs": {
-        "material": "22K Gold",
-        "collection": "Vanki"
-      },
-      "variants": [],
-      "tags": [
-        "jewellery",
-        "shrisilverbay",
-        "vanki"
-      ],
-      "seller": "Shrisilverbay Jewellery",
-      "delivery": {
-        "free": true,
-        "estimated": "3-5 days"
-      },
-      "returnPolicy": "7 days return",
-      "warranty": "Manufacturer warranty"
+      "createdAt": "2026-03-30T03:55:31.080Z"
     }
   ],
   "categories": [
     {
-      "name": "Necklace",
-      "icon": "fa-gem",
+      "name": "Mobiles",
+      "icon": "fa-mobile-alt",
       "subcategories": [
-        "Gold Necklace",
-        "Diamond Necklace",
-        "Bridal Necklace"
+        "Smartphones",
+        "Tablets",
+        "Accessories"
       ],
-      "image": "/uploads/products/1774818912056-353510218.jpeg"
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=300"
     },
     {
-      "name": "Earrings",
-      "icon": "fa-circle",
+      "name": "Electronics",
+      "icon": "fa-laptop",
       "subcategories": [
-        "Studs",
-        "Jhumka",
-        "Hoops"
+        "Audio",
+        "Cameras",
+        "TVs",
+        "Wearables"
       ],
-      "image": "/uploads/products/1774842835628-141971660.jpeg"
+      "image": "https://images.unsplash.com/photo-1498049860654-af1a5c5668ba?w=300"
     },
     {
-      "name": "Bangles",
-      "icon": "fa-ring",
+      "name": "Laptops",
+      "icon": "fa-computer",
       "subcategories": [
-        "Gold Bangles",
-        "Diamond Bangles",
-        "Bracelets"
+        "MacBooks",
+        "Windows Laptops",
+        "Gaming Laptops"
       ],
-      "image": "/uploads/products/1774818912056-353510218.jpeg"
+      "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=300"
     },
     {
-      "name": "Rings",
-      "icon": "fa-ring",
+      "name": "Fashion",
+      "icon": "fa-tshirt",
       "subcategories": [
-        "Engagement Rings",
-        "Diamond Rings",
-        "Gold Rings"
+        "Clothing",
+        "Footwear",
+        "Watches",
+        "Accessories"
       ],
-      "image": "/uploads/products/1774842835628-141971660.jpeg"
+      "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=300"
     },
     {
-      "name": "Chains",
-      "icon": "fa-link",
+      "name": "Appliances",
+      "icon": "fa-blender",
       "subcategories": [
-        "Gold Chains",
-        "Diamond Chains",
-        "Men Chains"
+        "Refrigerators",
+        "Washing Machines",
+        "Microwaves",
+        "ACs"
       ],
-      "image": "/uploads/products/1774818912056-353510218.jpeg"
+      "image": "https://images.unsplash.com/photo-1584568694244-14fbdf83bd30?w=300"
     },
     {
-      "name": "Anklets",
-      "icon": "fa-link",
+      "name": "Gaming",
+      "icon": "fa-gamepad",
       "subcategories": [
-        "Gold Anklets",
-        "Silver Anklets",
-        "Designer Anklets"
+        "Consoles",
+        "Games",
+        "Accessories"
       ],
-      "image": "/uploads/products/1774842835628-141971660.jpeg"
+      "image": "https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=300"
     },
     {
-      "name": "Hara",
-      "icon": "fa-gem",
+      "name": "Home",
+      "icon": "fa-home",
       "subcategories": [
-        "Gold Hara",
-        "Bridal Hara",
-        "Temple Hara"
+        "Furniture",
+        "Decor",
+        "Kitchen",
+        "Lighting"
       ],
-      "image": "/uploads/products/1774818912056-353510218.jpeg"
+      "image": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?w=300"
     },
     {
-      "name": "Vanki",
-      "icon": "fa-gem",
+      "name": "Beauty",
+      "icon": "fa-spa",
       "subcategories": [
-        "Gold Vanki",
-        "Bridal Vanki",
-        "Temple Vanki"
+        "Skincare",
+        "Makeup",
+        "Haircare",
+        "Fragrances"
       ],
-      "image": "/uploads/products/1774842835628-141971660.jpeg"
+      "image": "https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=300"
     }
   ],
   "banners": [
     {
       "id": 1,
-      "title": "Shrisilverbay Jewellery",
-      "subtitle": "Timeless designs for every special occasion",
-      "image": "/uploads/products/1774818912056-353510218.jpeg",
+      "title": "Big Billion Days Sale",
+      "subtitle": "Up to 80% Off on Top Brands",
+      "image": "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=1200",
       "link": "#products",
-      "color": "#b08d3c"
+      "color": "#ff6b35"
     },
     {
       "id": 2,
-      "title": "Bridal Jewellery Collection",
-      "subtitle": "Elegant Hara, Vanki, Necklaces and more",
-      "image": "/uploads/products/1774842835628-141971660.jpeg",
+      "title": "New iPhone 15 Pro",
+      "subtitle": "Titanium Design. A17 Pro Chip. Game-changing camera.",
+      "image": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=1200",
       "link": "#products",
-      "color": "#8a6a25"
+      "color": "#1a1a1a"
+    },
+    {
+      "id": 3,
+      "title": "Summer Fashion Sale",
+      "subtitle": "Trendy styles at unbeatable prices",
+      "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?w=1200",
+      "link": "#products",
+      "color": "#ff4081"
     }
   ],
   "deals": [
     {
-      "title": "Necklace",
-      "discount": "Up to 20%",
-      "icon": "fa-gem",
-      "color": "#b08d3c"
+      "title": "Electronics",
+      "discount": "Up to 40%",
+      "icon": "fa-laptop",
+      "color": "#6366f1"
     },
     {
-      "title": "Earrings",
-      "discount": "Up to 20%",
-      "icon": "fa-circle",
-      "color": "#b08d3c"
+      "title": "Fashion",
+      "discount": "50-80%",
+      "icon": "fa-tshirt",
+      "color": "#ec4899"
     },
     {
-      "title": "Bangles",
-      "discount": "Up to 20%",
-      "icon": "fa-ring",
-      "color": "#b08d3c"
+      "title": "Home",
+      "discount": "Min 60%",
+      "icon": "fa-home",
+      "color": "#f59e0b"
     },
     {
-      "title": "Rings",
-      "discount": "Up to 20%",
-      "icon": "fa-ring",
-      "color": "#b08d3c"
+      "title": "Mobiles",
+      "discount": "No Cost EMI",
+      "icon": "fa-mobile-alt",
+      "color": "#22c55e"
     },
     {
-      "title": "Chains",
-      "discount": "Up to 20%",
-      "icon": "fa-link",
-      "color": "#b08d3c"
-    },
-    {
-      "title": "Anklets",
-      "discount": "Up to 20%",
-      "icon": "fa-link",
-      "color": "#b08d3c"
-    },
-    {
-      "title": "Hara",
-      "discount": "Up to 20%",
-      "icon": "fa-gem",
-      "color": "#b08d3c"
-    },
-    {
-      "title": "Vanki",
-      "discount": "Up to 20%",
-      "icon": "fa-gem",
-      "color": "#b08d3c"
+      "id": 1774843049788,
+      "icon": "fa-percent",
+      "title": "Electronics",
+      "discount": "Up to 40%",
+      "category": "Mobiles",
+      "active": true
     }
   ]
 }

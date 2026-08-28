@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/api/:path*", "destination": "/api/index.js" }
+  ],
+  "functions": {
+    "api/index.js": {
+      "includeFiles": ["backend/data/**"]
+    }
+  }
+}

@@ -1,3 +1,23 @@
 {
-  "users": []
+  "users": [
+    {
+      "id": 1,
+      "name": "Admin User",
+      "email": "admin@smartstore.com",
+      "password": "admin123",
+      "isAdmin": true,
+      "phone": "9876543210",
+      "address": "Admin Office, Mumbai"
+    },
+    {
+      "id": 1774819034508,
+      "name": "John doe",
+      "email": "sadominator@gmail.com",
+      "password": "Shuyeb@2003",
+      "phone": "8447365794",
+      "address": "",
+      "isAdmin": false,
+      "createdAt": "2026-03-29T21:17:14.508Z"
+    }
+  ]
 }

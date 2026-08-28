@@ -1,5 +1,5 @@
 // Shrisilverbay - Fine Jewellery E-Commerce Interface
-const API_URL = window.location.origin;
+const API_URL = '';
 
 // State Management
 let products = [];
@@ -92,9 +92,8 @@ function initAnimations() {
 // Load All Data
 async function loadAllData() {
     try {
-        const response = await fetch(`${API_URL}/api/products`, { cache: 'no-store' });
-        const data = await response.json().catch(() => ({}));
-        if (!response.ok) throw new Error(data.message || `Products API returned ${response.status}`);
+        const response = await fetch(`${API_URL}/api/products`);
+        const data = await response.json();
         products = data.products || [];
         categories = data.categories || [];
         banners = data.banners || [];
@@ -753,10 +752,9 @@ function showLogin() {
 }
 
 function switchAuthTab(tab) {
-    const tabs = document.querySelectorAll('.auth-tab');
-    tabs.forEach(t => t.classList.remove('active'));
-    const activeIndex = tab === 'login' ? 0 : 1;
-    if (tabs[activeIndex]) tabs[activeIndex].classList.add('active');
+    document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+    event.target.classList.add('active');
+    
     document.getElementById('loginForm').style.display = tab === 'login' ? 'block' : 'none';
     document.getElementById('registerForm').style.display = tab === 'register' ? 'block' : 'none';
 }

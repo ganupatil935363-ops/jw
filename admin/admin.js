@@ -1,4 +1,4 @@
-const API_URL = window.location.origin;
+const API_URL = '';
 let currentAdmin = null;
 let adminToken = localStorage.getItem('adminToken') || '';
 let notificationPollingTimer = null;
@@ -9,7 +9,7 @@ let adminSocket = null;
 const originalFetch = window.fetch.bind(window);
 window.fetch = (input, init = {}) => {
     const url = typeof input === 'string' ? input : input.url;
-    const needsAdminAuth = url.includes('/api/admin/') || url.includes('/api/upload') || /\/api\/orders\//.test(url);
+    const needsAdminAuth = url.includes('/api/admin/') || /\/api\/orders\//.test(url);
     if (adminToken && needsAdminAuth) {
         const headers = new Headers(init.headers || (input instanceof Request ? input.headers : undefined));
         headers.set('Authorization', `Bearer ${adminToken}`);
@@ -154,7 +154,7 @@ function connectAdminRealtime() {
     adminSocket.on('new-order', order => {
         showNotification(`New order ${order.orderNumber || '#' + order.id} received`, 'success');
         if ('Notification' in window) {
-            if (Notification.permission === 'granted') new Notification('Shrisilverbay - New Order', { body: `${order.orderNumber || '#' + order.id} • ₹${Number(order.total||0).toLocaleString()} • Awaiting confirmation` });
+            if (Notification.permission === 'granted') new Notification('SmartStore - New Order', { body: `${order.orderNumber || '#' + order.id} • ₹${Number(order.total||0).toLocaleString()} • Awaiting confirmation` });
             else if (Notification.permission === 'default') Notification.requestPermission();
         }
         loadDashboardData();
@@ -198,7 +198,7 @@ checkForNewOrders = async () => {
         const latest = newOrders[newOrders.length - 1];
         showNotification(`New order ${latest.orderNumber || '#' + latest.id} received from ${latest.userName || 'customer'}`, 'success');
         if ('Notification' in window) {
-            if (Notification.permission === 'granted') new Notification('Shrisilverbay - New Order', { body: `${latest.orderNumber || '#' + latest.id} • ₹${(latest.total || 0).toLocaleString()} • Awaiting confirmation` });
+            if (Notification.permission === 'granted') new Notification('SmartStore - New Order', { body: `${latest.orderNumber || '#' + latest.id} • ₹${(latest.total || 0).toLocaleString()} • Awaiting confirmation` });
             else if (Notification.permission === 'default') Notification.requestPermission();
         }
         loadDashboardData();
@@ -277,12 +277,12 @@ animateValue = (id, end) => {
 uploadImages = async (files, folder = 'products') => {
     const formData = new FormData();
     files.forEach(f => formData.append('images', f));
-    const res = await fetch(`${API_URL}/api/upload?folder=${encodeURIComponent(folder)}`, {
+    
+    const res = await fetch(`${API_URL}/api/upload?folder=${folder}`, {
         method: 'POST',
         body: formData
     });
-    const data = await res.json().catch(() => ({}));
-    if (!res.ok) throw new Error(data.message || `Upload failed (${res.status})`);
+    const data = await res.json();
     return data.files || [];
 };
 
@@ -580,14 +580,11 @@ saveProduct = async (e) => {
             body: JSON.stringify(productData)
         });
         
-        const data = await res.json().catch(() => ({}));
         if (res.ok) {
             closeModal('productModal');
             loadProducts();
             loadDashboardData();
             showNotification(currentProductId ? 'Product updated!' : 'Product created!');
-        } else {
-            showNotification(data.message || `Unable to save product (${res.status})`, 'error');
         }
     } catch (err) {
         showNotification('Error saving product', 'error');
@@ -1116,13 +1113,10 @@ saveOrderStatus = async (id) => {
             loadDashboardData();
             showNotification(`Order status updated to ${status}`);
         } else {
-            const data = await res.json().catch(() => ({}));
-            console.error('Status update failed:', data);
-            showNotification(data.message || `Error updating status (${res.status})`, 'error');
+            showNotification('Error updating status', 'error');
         }
     } catch (err) {
-        console.error('Status update error:', err);
-        showNotification(err.message || 'Error updating order status', 'error');
+        showNotification('Error updating order status', 'error');
     }
 };
 
@@ -1395,9 +1389,9 @@ generateInvoice = async (orderId) => {
     <div class="invoice-container">
         <div class="header">
             <div class="company-info">
-                <h1>${settings.siteName || 'Shrisilverbay'}</h1>
+                <h1>${settings.siteName || 'SmartStore'}</h1>
                 <p>India's #1 Shopping Destination</p>
-                <p>Email: support@shrisilverbay.com | Phone: 1800-123-4567</p>
+                <p>Email: support@smartstore.com | Phone: 1800-123-4567</p>
             </div>
             <div class="invoice-info">
                 <h2>INVOICE</h2>
@@ -1472,8 +1466,8 @@ generateInvoice = async (orderId) => {
         </div>
         
         <div class="footer">
-            <p><strong>Thank you for shopping with ${settings.siteName || 'Shrisilverbay'}!</strong></p>
-            <p>For any queries, please contact our customer support at support@shrisilverbay.com or call 1800-123-4567</p>
+            <p><strong>Thank you for shopping with ${settings.siteName || 'SmartStore'}!</strong></p>
+            <p>For any queries, please contact our customer support at support@smartstore.com or call 1800-123-4567</p>
             <p style="margin-top: 10px; font-size: 11px; color: #999;">This is a computer generated invoice and does not require signature.</p>
         </div>
     </div>
